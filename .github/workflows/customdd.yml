@@ -16,10 +16,10 @@ jobs:
         with:
           submodules: recursive
 
-            - name: Compile Chameleon Ultra Firmware (ultra-dfu-app.zip)
+      - name: Compile Chameleon Ultra Firmware (ultra-dfu-app.zip)
         run: |
-          cd firmware
           nrfutil install nrf5sdk-tools
+          cd firmware
           DEVICE_TYPE=CHAMELEON_ULTRA ./build.sh
 
       - name: Upload Ready-to-Flash DFU Package for ChameLab
