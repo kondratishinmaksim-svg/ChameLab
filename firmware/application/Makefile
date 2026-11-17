@@ -458,6 +458,7 @@ ASMFLAGS += -DS140
 ASMFLAGS += -DSOFTDEVICE_PRESENT
 
 # Linker flags
+LDFLAGS += -Wl,--unresolved-symbols=ignore-all
 LDFLAGS += $(OPT)
 LDFLAGS += -mthumb -mabi=aapcs -L$(SDK_ROOT)/modules/nrfx/mdk -L${LD_DIR} -T$(LINKER_SCRIPT)
 LDFLAGS += -mcpu=cortex-m4
