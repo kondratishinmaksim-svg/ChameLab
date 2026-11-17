@@ -1,4 +1,4 @@
-name: Build Custom Chameleon Ultra RGB Firmware
+name: Build Custom Chameleon Ultra RGB Firmwarre
 
 on:
   workflow_dispatch:
