@@ -1,0 +1,28 @@
+name: Build Custom Chameleon Ultra RGB Firmware
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build-ultra-dfu:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/rfidresearchgroup/chameleonultra-fw-builder:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Compile Chameleon Ultra Firmware (ultra-dfu-app.zip)
+        run: |
+          cd firmware
+          DEVICE_TYPE=CHAMELEON_ULTRA ./build.sh
+
+      - name: Upload Ready-to-Flash DFU Package for ChameLab
+        uses: actions/upload-artifact@v4
+        with:
+          name: ultra-dfu-app-custom-rgb
+          path: firmware/objects/ultra-dfu-app.zip
