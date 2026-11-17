@@ -140,3 +140,10 @@ void rgb_marquee_play_rf_field_ripple(uint8_t origin_slot) {
         nrf_delay_ms(g_rgb_cfg.tap_speed_ms);
     }
 }
+void rgb_marquee_stop(void) {
+    // остановка анимации
+}
+
+void rgb_marquee_reset(void) {
+    // сброс анимации
+}
